@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Delete Meal · LiftLog{% endblock %}
+
+{% block content %}
+  <section class="page-head">
+    <div class="page-head__left">
+      <h1 class="page-title">Delete Meal</h1>
+      <p class="page-subtitle">This action cannot be undone.</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <div id="delete-info" class="danger-box">
+      <div class="list__empty">Loading meal...</div>
+    </div>
+
+    <div class="form-actions" style="margin-top:12px;">
+      <a id="cancel-link" class="btn btn--ghost" href="/diet">Cancel</a>
+      <button id="confirm-delete" class="btn btn--primary" type="button">Delete</button>
+    </div>
+
+    <div id="delete-message" class="form-message" aria-live="polite"></div>
+  </section>
+{% endblock %}
+
+{% block scripts %}
+  <script src="{{ url_for('static', filename='javascript/diet_delete.js') }}"></script>
+{% endblock %}

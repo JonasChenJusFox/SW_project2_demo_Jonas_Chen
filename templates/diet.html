@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}Diet · LiftLog{% endblock %}
+
+{% block content %}
+  <section class="page-head">
+    <div class="page-head__left">
+      <h1 class="page-title">Diet</h1>
+      <p class="page-subtitle">Track meals and daily calories.</p>
+    </div>
+    <div class="page-head__right">
+      <a class="btn btn--primary" id="diet-add" href="/diet/new">+ Add</a>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="searchbar">
+      <input id="diet-date" class="input" type="date" />
+    </div>
+
+    <div class="summary" id="diet-summary">
+      <div class="summary__item"><span>Calories</span><strong id="sum-cal">0</strong></div>
+      <div class="summary__item"><span>Protein</span><strong id="sum-pro">0</strong></div>
+      <div class="summary__item"><span>Carbs</span><strong id="sum-carb">0</strong></div>
+      <div class="summary__item"><span>Fats</span><strong id="sum-fat">0</strong></div>
+    </div>
+
+    <div class="searchbar">
+      <input
+        id="meal-search"
+        class="input"
+        type="search"
+        placeholder="Search meals by name or notes..."
+        autocomplete="off"
+      />
+      <button id="meal-clear" class="btn btn--ghost" type="button">Clear</button>
+    </div>
+
+    <div class="list" id="meal-list" aria-live="polite">
+      <div class="list__empty">Loading meals...</div>
+    </div>
+  </section>
+{% endblock %}
+
+{% block scripts %}
+  <script src="{{ url_for('static', filename='javascript/diet.js') }}"></script>
+{% endblock %}

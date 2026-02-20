@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}Workouts · LiftLog{% endblock %}
+
+{% block content %}
+  <section class="page-head">
+    <div class="page-head__left">
+      <h1 class="page-title">Workouts</h1>
+      <p class="page-subtitle">Search history and track progressive overload.</p>
+    </div>
+
+    <div class="page-head__right">
+      <a class="btn btn--primary" href="/workouts/new">+ Add</a>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="searchbar">
+      <input
+        id="workout-search"
+        class="input"
+        type="search"
+        placeholder="Search by exercise, date, or notes..."
+        autocomplete="off"
+      />
+      <button id="workout-clear" class="btn btn--ghost" type="button">Clear</button>
+    </div>
+
+    <div class="list" id="workout-list" aria-live="polite">
+      <div class="list__empty">Loading workouts...</div>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="card__header">
+      <h2 class="card__title">Tips</h2>
+      <span class="chip chip--ghost">Quick</span>
+    </div>
+    <ul class="bullets">
+      <li>Use the search box to find an exercise (e.g., “bench”).</li>
+      <li>Click a workout to open details (optional page).</li>
+      <li>Edit or delete using the buttons on the right.</li>
+    </ul>
+  </section>
+{% endblock %}
+
+{% block scripts %}
+  <script src="{{ url_for('static', filename='javascript/workouts.js') }}"></script>
+{% endblock %}
